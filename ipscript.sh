@@ -5,18 +5,18 @@
 #*/30 * * * * file.sh
 
 
-GITUSER="USUARIO DO GITUB"
-GITPASS="Senha do github"
-GITREPO="NOmedorepositorio.git"
+GIT_USER="USUARIO DO GITUB"
+GIT_PASS="Senha do github"
+GIT_REPO="NOmedorepositorio.git"
 DIR="/home/xxxx/script/IP/"
-FILENAME="/home/xxxx/script/IP/ip.txt"
+FILE_NAME="/home/xxxx/script/IP/ip.txt"
 cd $DIR
-git pull https://$GITUSER:$GITPASS@github.com/$GITUSER/$GITREPO
+git pull https://$GIT_USER:$GIT_PASS@github.com/$GIT_USER/$GIT_REPO
 sleep 10
-rm $FILENAME
+rm $FILE_NAME
 dig @resolver1.opendns.com ANY myip.opendns.com +short >> ip.txt
 cd $DIR
 git add .
 git commit -m "Not a bot at all"
-git push https://$GITUSER:$GITPASS@github.com/$GITUSER/$GITREPO master
+git push https://$GIT_USER:$GIT_PASS@github.com/$GIT_USER/$GIT_REPO master
 
